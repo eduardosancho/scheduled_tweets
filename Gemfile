@@ -75,5 +75,5 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "omniauth-twitter", "~> 1.4"
-gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'omniauth-twitter', '~> 1.4'
