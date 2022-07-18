@@ -1,4 +1,6 @@
 class OmniauthCallbacksController < ApplicationController
+  before_action :require_user_logged_in!
+
   def twitter
     # This cmd prints the entire response from the auth method
     # Rails.logger.info auth
