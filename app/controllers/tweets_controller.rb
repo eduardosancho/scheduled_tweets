@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :require_user_logged_in!
-  before_action :set_twitter_account, only: %i[show edit update destroy]
+  before_action :set_tweet, only: %i[show edit update destroy]
 
   def index
     @tweets = Current.user.tweets
@@ -19,15 +19,25 @@ class TweetsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path, notice: 'Tweet was updated successfully'
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @twitter_account.destroy
-    redirect_to twitter_accounts_path, notice: "Successfully unlinked #{@twitter_account.username} account."
+    @tweet.destroy
+    redirect_to tweetspath, notice: 'Tweet was unscheduled successfully'
   end
 
   private
 
-  def set_twitter_account
-    @twitter_account = Current.user.twitter_accounts.find(params[:id])
+  def set_tweet
+    @tweet = Current.user.tweets.find(params[:id])
   end
 
   def tweet_params
