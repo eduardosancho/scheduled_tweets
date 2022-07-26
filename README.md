@@ -128,6 +128,12 @@ rails server
 Which you can view by going to http://localhost:3000 in your browser.
 <hr>
 
+## Start Background Worker
+This app uses a background job to publish your scheduled tweets.
+~~~ bash
+bundle exec sidekiq
+~~~
+
 ## Testing RSpec
 Tests pending...
 <hr>
