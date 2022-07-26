@@ -1,3 +1,4 @@
 <h1>Edit Scheduled Tweet</h1>
 
 <%= render "form", tweet: @tweet %>
+<%= button_to "Delete", tweet_path(@tweet.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
